@@ -1,12 +1,12 @@
-# Employee Management Full-Stack Application
+# Employee Management System
 
-The **Employee Management Full-Stack Application** is a modern, feature-rich system for managing employee and department data, built to demonstrate the power of combining traditional enterprise technologies with modern web frameworks. It leverages a responsive React frontend alongside a robust Spring Boot backend, delivering a seamless user experience with features such as CRUD operations, data visualization, authentication, and secure REST APIs. 
+The **Employee Management System** is a full-stack web application built using **Spring Boot**, **React**, and **MySQL**. It provides a modern solution for managing employees and departments through an intuitive user interface, secure REST APIs, authentication, and data visualization.
 
-Designed with scalability and maintainability in mind, this application is also fully containerized with Docker, orchestrated with Kubernetes, and supports CI/CD pipelines & blue/green and canary deployment techniques through Jenkins, making it an ideal blueprint for real-world enterprise applications.
+The application demonstrates enterprise software development practices by integrating a responsive React frontend with a scalable Spring Boot backend. It also includes Docker containerization, Kubernetes deployment manifests, Jenkins CI/CD pipelines, Swagger API documentation, and cloud deployment support, making it a comprehensive project for learning and showcasing full-stack development.
 
 <p align="center">
-  <a href="https://employee-manage-app.vercel.app" target="_blank">
-    <img src="img/logo.png" alt="Employee Management Full-Stack Application Logo" style="border-radius: 10px" width="35%"/>
+  <a href="https://employee-management-system-q6904kji2.vercel.app/" target="_blank">
+    <img src="img/logo.png" alt="Employee Management System Logo" style="border-radius: 10px" width="35%"/>
   </a>
 </p>
 
@@ -181,15 +181,11 @@ flowchart LR
 ```
 ## Live Deployment
 
-The Employee Management System full-stack app is deployed with Vercel and is live at [https://employee-manage-app.vercel.app](https://employee-manage-app.vercel.app) for you to explore and interact with the application.
+🚀 **Frontend (Vercel)**
 
-The backend is also deployed with Render and is available at [https://employee-management-app.onrender.com](https://employee-management-app-gdm5.onrender.com/). You can access the API endpoints directly from the browser at the root (`/`) endpoint as we've set up the Swagger UI documentation for easy testing.
+https://employee-management-system-q6904kji2.vercel.app/
 
-> [!IMPORTANT]
-> **Note:** The backend API may spin down due to inactivity, so you may need to wait for up to 2 minutes for the API to start up again. Feel free to test the API endpoints and explore the application. Or, you can run the backend locally and connect it to the frontend for a more seamless experience.
-
-> [!NOTE]
-> **Additional Note:** It may take a while to fetch the data and process your requests, as Render's free tier has VERY limited resources (only 512MB RAM and 0.1 CPU).
+The application is deployed on Vercel and can be accessed through the above link. It showcases the Employee Management System user interface, including employee management, department management, authentication, dashboards, and other application features.
 
 ## Key Technologies
 
@@ -224,7 +220,7 @@ The backend is also deployed with Render and is available at [https://employee-m
 
 The frontend of the Employee Management System provides a user-friendly interface for managing employees and departments. It includes features for viewing, adding, editing, and deleting employees and departments. The app also includes visualizations for employee metrics such as growth over time and distribution by age range.
 
-The frontend is also live at [https://employee-manage-app.vercel.app](https://employee-manage-app.vercel.app) for you to explore and interact with the application. Note that the backend is not hosted, so the API calls will not work and the data will not be present.
+The application features a responsive and modern user interface built with React, Material UI, and Tailwind CSS. Below are some screenshots demonstrating the major modules of the system.
 
 **Landing Page:** 
 
@@ -440,9 +436,9 @@ Ensure that you have Java 11 installed on your local machine. If not, follow the
 
 ### 2. Clone the Repository
 
-```bash
-git clone https://github.com/hoangsonww/Employee-Management-Fullstack-App.git
-cd Employee-Management-Fullstack-App  # Fix the paths if necessary
+```bash 
+git clone https://github.com/sneha-g17/employee-management-system.git
+cd employee-management-system # Fix the paths if necessary
 cd backend
 ```
 
@@ -615,8 +611,8 @@ Feel free to add more tests as needed to ensure the reliability and correctness 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/hoangsonww/Employee-Management-Fullstack-App.git
-cd Employee-Management-Fullstack-App  # Fix the paths if necessary
+git clone https://github.com/sneha-g17/employee-management-system.git
+cd employee-management-system  # Fix the paths if necessary
 cd frontend
 ```
 
@@ -733,8 +729,6 @@ docker push <your_docker_username>/employee-management-app-backend
 docker push <your_docker_username>/employee-management-app-frontend
 ```
 
-Additionally, you can access the image on **Docker Hub** **[here](https://hub.docker.com/repository/docker/hoangsonw/employee-management-app/).**
-
 ```mermaid
 flowchart LR
     CodeBackend[backend/Dockerfile] -->|docker build| ImgBackend[Backend Image]
@@ -746,17 +740,6 @@ flowchart LR
     BackendCtr -->|REST 8080| DB[(MySQL Service)]
     FrontendCtr -->|HTTP 3000→backend| BackendCtr
 ```
-
-## Kubernetes
-
-The project includes production-ready Kubernetes manifests with support for advanced deployment strategies:
-
-### Deployment Strategies
-
-- **Rolling Deployment**: Gradual zero-downtime updates with automatic rollback
-- **Blue-Green Deployment**: Complete environment switch for instant rollback capability
-- **Canary Deployment**: Gradual traffic shift to validate new versions (10% → 100%)
-
 ### Production Features
 
 - **High Availability**: 3 replicas per deployment with pod anti-affinity
@@ -784,12 +767,6 @@ envsubst < frontend-deployment-blue.yaml | kubectl apply -f -
 ./scripts/deploy-canary.sh v1.2.3
 ./scripts/promote-canary.sh v1.2.3
 ```
-
-For comprehensive deployment instructions, see **[kubernetes/DEPLOYMENT-GUIDE.md](kubernetes/DEPLOYMENT-GUIDE.md)**.
-
-## AWS Production Deployment
-
-The `aws/terraform/` directory contains a comprehensive Terraform stack for production-grade AWS infrastructure:
 
 ### Infrastructure Components
 
@@ -823,10 +800,6 @@ The `aws/terraform/` directory contains a comprehensive Terraform stack for prod
 - **Service Accounts**: Pre-configured IAM roles for backend, load balancer controller, autoscaler
 - **Node Groups**: Separate production and spot node groups with proper taints/labels
 - **Monitoring**: CloudWatch Container Insights integration
-
-### Deployment
-
-As mentioned, we fully support blue/green and canary deployment strategies with the provided Kubernetes manifests and deployment scripts on top of the AWS infrastructure.
 
 ```bash
 cd aws/terraform
@@ -1030,25 +1003,16 @@ This guide enables you to view, test, and utilize the API. Feel free to explore 
   ```bash
   npm start --verbose
   ```
-
-## Contributing
-
-If you'd like to contribute to the project, please fork the repository and submit a pull request with your changes. Ensure that you follow the project's coding standards and include relevant tests for new features.
-
-## License
-
-This project is licensed under the **MIT License.** See the [LICENSE](LICENSE) file for details.
-
+  
 ## Contact
 
-For any questions or issues, please contact [hoangson091104@gmail.com](mailto:hoangson091104@gmail.com).
-
+For any questions or issues, please contact [2023506074@student.annauniv.edu](mailto:2023506074@student.annauniv.edu).
 ---
 
 Thank you for checking out the **Employee Management Full-Stack Application!** Feel free to use this project for your own learning or development purposes.
 
-Created with ❤️ by [Son Nguyen](https://github.com/hoangsonww) in 2024.
+Created with ❤️ by [Sneha G](https://github.com/sneha-g17/) in 2026.
 
 ---
 
-**[⬆ Back to Top](#employee-management-full-stack-application)**
+**[⬆ Back to Top](#employee-management-system)**
